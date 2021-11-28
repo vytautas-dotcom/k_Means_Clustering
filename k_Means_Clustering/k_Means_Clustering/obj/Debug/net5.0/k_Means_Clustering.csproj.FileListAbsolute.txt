@@ -1,0 +1,16 @@
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.csproj.AssemblyReference.cache
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.AssemblyInfoInputs.cache
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.AssemblyInfo.cs
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\bin\Debug\net5.0\k_Means_Clustering.exe
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\bin\Debug\net5.0\k_Means_Clustering.deps.json
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\bin\Debug\net5.0\k_Means_Clustering.runtimeconfig.json
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\bin\Debug\net5.0\k_Means_Clustering.runtimeconfig.dev.json
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\bin\Debug\net5.0\k_Means_Clustering.dll
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\bin\Debug\net5.0\ref\k_Means_Clustering.dll
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\bin\Debug\net5.0\k_Means_Clustering.pdb
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.dll
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\ref\k_Means_Clustering.dll
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.pdb
+C:\Users\Dell\Docs\SHARE\MACHINE LEARNING\k_Means_Clustering\k_Means_Clustering\k_Means_Clustering\obj\Debug\net5.0\k_Means_Clustering.genruntimeconfig.cache

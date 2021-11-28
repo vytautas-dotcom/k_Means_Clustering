@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "k_Means_Clustering/1.0.0": {
+        "runtime": {
+          "k_Means_Clustering.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "k_Means_Clustering/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
