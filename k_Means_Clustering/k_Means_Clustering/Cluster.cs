@@ -9,33 +9,17 @@ namespace k_Means_Clustering
     class Cluster
     {
         private int _numClusters;
-        private int[] _clustering;
+        public int[] _clustering;
         private double[][] _centroids;
-        private Random _rnd;
-        public Cluster(int numClusters)
+        public Cluster(int numClusters, int[] clustering)
         {
             _numClusters = numClusters;
+            _clustering = clustering;
             _centroids = new double[numClusters][];
-            _rnd = new Random();
         }
-        public int[] Clusterer(double[][] data)
+        public void Clusterer(double[][] data)
         {
             int rows = data.Length;
-            int columns = data[0].Length;
-            _clustering = new int[rows];
-
-            for (int k = 0; k < _numClusters; k++)
-            {
-                _centroids[k] = new double[columns];
-            }
-            ClustersRandomizer(_numClusters);
-
-            Console.WriteLine("\nInit random clustering:");
-            for (int i = 0; i < _clustering.Length; i++)
-            {
-                Console.Write(_clustering[i] + " ");
-            }
-            Console.WriteLine();
 
             bool changeInClustering = true;
             int maxCount = rows * 10; //to avoid oscillations
@@ -44,40 +28,16 @@ namespace k_Means_Clustering
             while (changeInClustering == true && ct < maxCount)
             {
                 ++ct;
-                UpdateCentroids(data, _clustering, _numClusters);
+                UpdateCentroids(data);
                 changeInClustering = UpdateClustering(data);
             }
             int[] result = new int[rows];
-
-            Console.WriteLine("\nClustering after:");
-            for (int i = 0; i < _clustering.Length; i++)
-            {
-                Console.Write(_clustering[i] + " ");
-            }
-            Console.WriteLine();
-
-
-            Array.Copy(_clustering, result, _clustering.Length);
-            return result;
-
         }
 
-        private void ClustersRandomizer(int numOfClusters)
+
+        private void UpdateCentroids(double[][] data)
         {
-            int[] clust = new int[numOfClusters];
-            for (int i = 0; i < _clustering.Length; i++)
-            {
-                _clustering[i] = _rnd.Next(0, numOfClusters);
-                clust[_clustering[i]]++;
-            }
-            if (clust.Contains(0))
-            {
-                ClustersRandomizer(numOfClusters);
-            }
-        }
-        private void UpdateCentroids(double[][] data, int[] clustersArray, int num)
-        {
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < _numClusters; i++)
             {
                 _centroids[i] = new double[] { 0.0, 0.0 };
             }
@@ -85,25 +45,28 @@ namespace k_Means_Clustering
             int[] counts = new int[_centroids.Length];
             for (int i = 0; i < data.Length; i++)
             {
-                if (_centroids[clustersArray[i]][0].Equals(0.0))
+                //puts first coordinates for every centroid
+                if (_centroids[_clustering[i]][0].Equals(0.0))
                 {
-                    _centroids[clustersArray[i]] = data[i];
-                    counts[clustersArray[i]]++;
+                    for (int j = 0; j < data[i].Length; j++)
+                    {
+                        _centroids[_clustering[i]][j] = data[i][j];
+                    }
+                    counts[_clustering[i]]++;
                     continue;
                 }
-                counts[clustersArray[i]]++;
+                //counts average coordinates for centroid of every randomized cluster
+                counts[_clustering[i]]++;
                 for (int j = 0; j < data[i].Length; j++)
                 {
-                    _centroids[clustersArray[i]][j] = (_centroids[clustersArray[i]][j] * (((double)counts[clustersArray[i]] - 1) / counts[clustersArray[i]]))
-                                                            + data[i][j] / counts[clustersArray[i]];
+                    _centroids[_clustering[i]][j] = (_centroids[_clustering[i]][j] * (((double)counts[_clustering[i]] - 1) / counts[_clustering[i]]))
+                                                            + data[i][j] / counts[_clustering[i]];
                 }
             }
         }
         private bool UpdateClustering(double[][] data)
         {
             bool changed = false;
-            int[] newClustering = new int[data.Length];
-            Array.Copy(_clustering, newClustering, data.Length);
             double[] distances = new double[_numClusters];
             double[] dxdy = new double[2];
 

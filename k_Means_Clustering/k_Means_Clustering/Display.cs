@@ -8,29 +8,64 @@ namespace k_Means_Clustering
 {
     class Display
     {
+        int numClusters = 3;
+        public Display()
+        {
+
+        }
+        public Display(int num)
+        {
+            numClusters = num;
+        }
         public void Show()
         {
-            Data data = new Data();
-            var rawData = data.rawData;
-            Console.WriteLine("Raw unclustered data:\n");
-            Console.WriteLine(" ID Height (in.) Weight (kg.)");
-            Console.WriteLine("---------------------------------");
-            ShowData(rawData, 1, true, true);
+            
 
-            int numClusters = 3;
+            Data data = new Data();
+            var rawData = data.RawData;
+            
+            int[] clustering = data.ClustersRandomizer(numClusters);
+            Console.WriteLine("Raw unclustered data:\n");
+            Console.WriteLine(" ID Coordinate X Coordinate Y Cluster");
+            Console.WriteLine("---------------------------------");
+            ShowData(rawData, clustering, 1, true, true);
+
+            
             Console.WriteLine("\nSetting numClusters to " + numClusters);
             Console.WriteLine("\nStarting clustering using k-means algorithm");
-            Cluster cluster = new Cluster(numClusters);
-            int[] clustering = cluster.Clusterer(rawData);
+            Console.WriteLine("\nRondomized clustering:");
+            ShowVector(clustering, false);
+            Cluster cluster = new Cluster(numClusters, clustering);
+            cluster.Clusterer(rawData);
             Console.WriteLine();
-            Console.WriteLine("Clustering complete\n");
-            Console.WriteLine("Final clustering in internal form:\n");
-            //ShowVector(clustering, true);
-            //Console.WriteLine("Raw data by cluster:\n");
-            //ShowClustered(rawData, clustering, numClusters, 1);
-            Console.WriteLine("\nEnd k-means clustering demo\n");
+            Console.WriteLine("Recalculated clustering:");
+            ShowVector(cluster._clustering, false);
+            Console.WriteLine("\n\nFinal clustering in internal form:\n");
+            ShowClustered(rawData, cluster._clustering, numClusters, 1);
             
         }
+
+        static void ShowData(double[][] rawData, int[] clustering, int decimals, bool indices, bool newLine)
+        {
+            for (int i = 0; i < rawData.Length; i++)
+            {
+                if (indices == true)
+                {
+                    Console.Write(i.ToString().PadLeft(3) + "       ");
+                    for (int j = 0; j < rawData[i].Length; j++)
+                    {
+                        double v = rawData[i][j];
+                        Console.Write(v.ToString("F" + decimals) + "      ");
+                    }
+                    Console.WriteLine("   " + clustering[i]);
+                }
+                if (newLine == true)
+                {
+                    Console.WriteLine("");
+                }
+            }
+        }
+
 
         private void ShowClustered(double[][] rawData, int[] clustering, int numClusters, int decimals)
         {
@@ -57,29 +92,8 @@ namespace k_Means_Clustering
         {
             for (int i = 0; i < vector.Length; i++)
             {
-                Console.WriteLine(vector[i] + " ");
+                Console.Write(vector[i] + " ");
                 if (newLine == true) Console.WriteLine();
-            }
-        }
-
-        static void ShowData(double[][] rawData, int decimals, bool indices, bool newLine)
-        {
-            for (int i = 0; i < rawData.Length; i++)
-            {
-                if (indices == true)
-                {
-                    Console.Write(i.ToString().PadLeft(3) + "         ");
-                    for (int j = 0; j < rawData[i].Length; j++)
-                    {
-                        double v = rawData[i][j];
-                        Console.Write(v.ToString("F" + decimals) + "        ");
-                    }
-                    Console.WriteLine("");
-                }
-                if (newLine == true)
-                {
-                    Console.WriteLine("");
-                }
             }
         }
 
